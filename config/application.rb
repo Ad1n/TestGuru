@@ -10,7 +10,6 @@ module TestGuru
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
-
     #<ActiveSupport::TimeZone:0x007ffa9f845b60 @name="Moscow", @utc_offset=nil,
     # @tzinfo=#<TZInfo::DataTimezone: Europe/Moscow>>
     config.time_zone = 'Moscow'
