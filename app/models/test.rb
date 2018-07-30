@@ -2,12 +2,11 @@ class Test < ApplicationRecord
   belongs_to :category
   has_many :questions
 
-  has_many :logs
-  has_many :users, through: :logs
+  has_many :passed_test_logs
+  has_many :users, through: :passed_test_logs
 
-  def self.by_categories_desk(category)
-    # category = Category.where(title: category).pluck(:id)
-    # where(category_id: category).order("title DESC").pluck(:title)
-    Category.where(title: category)[0].tests.order('title DESC')
+  def self.by_categories_order_desc(category)
+    joins("INNER JOIN categories ON categories.id = tests.category_id").where("categories.title = ?", category).\
+    order('title DESC')
   end
 end
