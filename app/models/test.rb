@@ -1,6 +1,7 @@
 class Test < ApplicationRecord
   belongs_to :category
   has_many :questions
+  has_one :author_test_log
 
   has_many :passed_test_logs
   has_many :users, through: :passed_test_logs
