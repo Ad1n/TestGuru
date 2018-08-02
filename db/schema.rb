@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180801075928) do
+ActiveRecord::Schema.define(version: 20180802172051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,15 +22,6 @@ ActiveRecord::Schema.define(version: 20180801075928) do
     t.boolean "correct", default: true, null: false
     t.bigint "question_id"
     t.index ["question_id"], name: "index_answers_on_question_id"
-  end
-
-  create_table "author_test_logs", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "test_id"
-    t.bigint "user_id"
-    t.index ["test_id"], name: "index_author_test_logs_on_test_id"
-    t.index ["user_id"], name: "index_author_test_logs_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -63,7 +54,9 @@ ActiveRecord::Schema.define(version: 20180801075928) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "category_id"
+    t.bigint "user_id"
     t.index ["category_id"], name: "index_tests_on_category_id"
+    t.index ["user_id"], name: "index_tests_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -79,4 +72,5 @@ ActiveRecord::Schema.define(version: 20180801075928) do
   add_foreign_key "passed_test_logs", "users"
   add_foreign_key "questions", "tests"
   add_foreign_key "tests", "categories"
+  add_foreign_key "tests", "users"
 end
