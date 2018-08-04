@@ -22,5 +22,6 @@
 
 .byebug_history
 
-.DC_Store
+.DS_Store
 .idea/
+
