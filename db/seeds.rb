@@ -9,9 +9,9 @@
 # ruby encoding: utf-8
 
 users = User.create!([
-                         { name: "Anton", login: "Ad1n", password: "Asdf123" },
-                         { name: "Max", login: "Max", password: "qwertyui"},
-                         { name: "Oksana", login: "Oks", password: "zxccxz333"}
+                         { name: "Anton", login: "Ad1n", password: "Asdf123", email: "shevtsovav@bk.ru" },
+                         { name: "Max", login: "Max", password: "qwertyui", email: "max@ya.ru"},
+                         { name: "Oksana", login: "Oks", password: "zxccxz333", email: "oks@ya.ru"}
                      ])
 
 categories = Category.create!([
@@ -21,10 +21,10 @@ categories = Category.create!([
                               ])
 
 tests = Test.create!([
-    { title: "Ruby. Ready for action?", level: 5, category: categories[0], user: users[0] },
-    { title: "Vue.js - Start you way", level: 2, category: categories[2], user: users[0] },
-    { title: "Python. Pro", level: 5, category: categories[1], user: users[0] },
-    { title: "Ruby. Basic", level: 1, category: categories[0], user: users[0] }
+    { title: "Ruby. Ready for action?", level: 5, category: categories[0], author: users[0] },
+    { title: "Vue.js - Start you way", level: 2, category: categories[2], author: users[0] },
+    { title: "Python. Pro", level: 5, category: categories[1], author: users[0] },
+    { title: "Ruby. Basic", level: 1, category: categories[0], author: users[0] }
                      ])
 
 questions = Question.create!([
