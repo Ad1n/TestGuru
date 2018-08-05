@@ -8,14 +8,14 @@ class Test < ApplicationRecord
 
   belongs_to :author, class_name: 'User', foreign_key: 'user_id'
 
-  validates :title, presence: true
-  validates :level, numericality: { only_integer: true }
-  validates :title, uniqueness: { scope: :level }
-
+  validates :title, presence: true,
+                    uniqueness: { scope: :level }
+  validates :level, numericality: { only_integer: true, greater_than: 0 }
 
   # def self.by_categories_order_desc(category)
     # joins("INNER JOIN categories ON categories.id = tests.category_id").where("categories.title = ?", category).\
     # order('title DESC')
+
   #   joins(:category).where(categories: { title: category }).order(title: :desc)
   # end
 

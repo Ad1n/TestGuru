@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20180805102804) do
     t.bigint "category_id"
     t.bigint "user_id"
     t.index ["category_id"], name: "index_tests_on_category_id"
-    t.index ["title", "level"], name: "index_tests_on_title_and_level", unique: true
+    t.index ["level", "title"], name: "index_tests_on_level_and_title", unique: true
     t.index ["user_id"], name: "index_tests_on_user_id"
   end
 
