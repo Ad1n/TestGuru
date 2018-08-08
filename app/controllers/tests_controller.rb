@@ -1,5 +1,5 @@
 class TestsController < ApplicationController
-  before_action :find_test, except: %i[index]
+  before_action :select_test, except: %i[index]
 
   def index
     @tests = Test.all.pluck('title')
@@ -12,7 +12,7 @@ class TestsController < ApplicationController
 
   private
 
-  def find_test
+  def select_test
     @test = Test.find(params[:id])
   end
 
