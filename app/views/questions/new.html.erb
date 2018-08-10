@@ -1,7 +1,26 @@
 <h1> Create new question </h1>
 
-<%= form_for @question, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
-  <%= f.label "New question is:  " %>
-  <%= f.text_field :body, size: "60" %>
-  <%= f.submit "Create" %>
+<!--<form action="/tests/#{@test.id}/questions" method="post">-->
+  <!--<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">-->
+  <!--<p>-->
+    <!--<label for="question-body">Question is </label>-->
+    <!--<input type="text" name="question[body]" id="question-body">-->
+  <!--</p><br>-->
+
+  <!--<input type="submit" value="Create question">-->
+<!--</form>-->
+
+
+<!--<%= form_for @question, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>-->
+  <!--<%= f.label "New question is:  " %>-->
+  <!--<%= f.text_field :body, size: "60" %>-->
+  <!--<%= f.submit "Create" %>-->
+<!--<% end %>-->
+
+<p>
+<%= form_with model: [@test, @question] do |form| %>
+  <%= form.label "New question is:  " %>
+  <%= form.text_field :body %>
+  <%= form.submit "Create" %>
 <% end %>
+</p>
