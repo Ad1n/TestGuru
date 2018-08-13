@@ -1,5 +1,5 @@
 class TestsController < ApplicationController
-  before_action :select_test, only: %i[show edit update delete]
+  before_action :select_test, only: %i[show edit update destroy]
 
   def index
     @tests = Test.all
@@ -19,7 +19,7 @@ class TestsController < ApplicationController
   def create
     @test = Test.new(test_params)
     if @test.save
-      redirect_to @test
+      redirect_to @test, notice: "Successfully created!"
     else
       render :new
     end
@@ -27,7 +27,7 @@ class TestsController < ApplicationController
 
   def update
     if @test.update(test_params)
-      redirect_to @test
+      redirect_to @test, notice: "Successfully updated!"
     else
       render :edit
     end
@@ -35,7 +35,7 @@ class TestsController < ApplicationController
 
   def destroy
     @test.destroy
-    redirect_to tests_path
+    redirect_to tests_path, alert: "Succesfully deleted"
   end
 
   private

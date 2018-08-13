@@ -1,13 +1,8 @@
 class QuestionsController < ApplicationController
-  before_action :select_test, only: %i[index create new]
+  before_action :select_test, only: %i[create new]
   before_action :select_question, only: %i[show destroy edit update]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
-
-  def index
-    @questions = @test.questions.pluck('body')
-    render inline: '<%= @questions %>'
-  end
 
   def show
   end
@@ -23,7 +18,7 @@ class QuestionsController < ApplicationController
     @question = @test.questions.new(question_params)
 
     if @question.save
-      redirect_to test_path(@test.id)
+      redirect_to test_path(@test.id), notice: "Successfully created!"
     else
       render :new
     end
@@ -31,7 +26,7 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
-      redirect_to @question
+      redirect_to @question, notice: "Successfully updated!"
     else
       render :edit
     end
@@ -39,7 +34,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    redirect_to @question.test
+    redirect_to @question.test, alert: "Succesfully deleted"
   end
 
   private

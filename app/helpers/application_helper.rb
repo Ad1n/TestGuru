@@ -1,11 +1,10 @@
 module ApplicationHelper
-  require 'date'
 
   def current_year
-    Time.now.strftime("%Y")
+    Time.current.year
   end
 
   def github_url(author, repo)
-    "https://github.com/#{author}/#{repo}"
+    link_to 'GitHub', "https://github.com/#{author}/#{repo}", target: '_blank'
   end
 end
