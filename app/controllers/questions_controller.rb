@@ -34,7 +34,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    redirect_to @question.test, alert: "Succesfully deleted"
+    redirect_to @question.test, notice: "Succesfully deleted"
   end
 
   private

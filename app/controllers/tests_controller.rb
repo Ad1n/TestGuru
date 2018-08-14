@@ -35,7 +35,7 @@ class TestsController < ApplicationController
 
   def destroy
     @test.destroy
-    redirect_to tests_path, alert: "Succesfully deleted"
+    redirect_to tests_path, notice: "Succesfully deleted"
   end
 
   private
