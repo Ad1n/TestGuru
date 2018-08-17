@@ -1,0 +1,15 @@
+<h1><%= @test_passage.test.title %> test was  completed !</h1>
+
+<% if @test_passage.passed? %>
+  <div class="correct">
+    <h2> Congratulations! You passed the test successfully. </h2>
+    <h2> <%= @test_passage.passed_by_percents %> % </h2>
+  </div>
+<% else %>
+  <div class="wrong">
+    <h2> Sorry. You need to learn more. </h2>
+    <h2> <%= @test_passage.passed_by_percents %> % </h2>
+  </div>
+<% end %>
+
+<p><%= link_to 'Tests list', root_path %></p>
