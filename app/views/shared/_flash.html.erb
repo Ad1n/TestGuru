@@ -1,3 +1,7 @@
-<% flash.each do |key, message| %>
-  <p class="<%= key %>"><%= message %></p>
+<!--<% flash.each do |key, message| %>-->
+  <!--<p class="<%= key %>"><%= message %></p>-->
+<!--<% end %>-->
+
+<% if flash[:alert] %>
+  <%= content_tag :p, flash[:alert], class: 'flash alert' %>
 <% end %>

@@ -8,8 +8,10 @@
   <tr>
     <th>Title</th>
     <th>Level</th>
+    <% if logged_in? %>
     <th>Questions</th>
     <th colspan="4">What u want to do?</th>
+    <% end %>
   </tr>
     <%= render @tests %>
 </table>

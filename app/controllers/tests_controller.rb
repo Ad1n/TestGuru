@@ -1,6 +1,7 @@
 class TestsController < ApplicationController
+  before_action :authenticate_user!, except: %i[index]
   before_action :select_test, only: %i[show edit update destroy start]
-  before_action :set_user, only: %i[start]
+  skip_before_action :set_user, except: %i[index start]
 
   def index
     @tests = Test.all
@@ -54,7 +55,4 @@ class TestsController < ApplicationController
     params.require(:test).permit(:title, :level, :category_id, :user_id)
   end
 
-  def set_user
-    @user = User.first
-  end
 end

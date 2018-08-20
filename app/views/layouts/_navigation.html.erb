@@ -1,0 +1,21 @@
+<div class="navbar-header">
+  <table>
+    <tr>
+      <td><%= link_to 'Sign up', signup_path unless session[:user_id] %></td>
+      <td>
+        <% if session[:user_id] %>
+          <h3> Welcome <%= @current_user&.name %> ! </h3>
+        <% end %>
+      </td>
+
+      <td><h1><%= link_to "TEST GURU", root_path, class: "navbar-brand", id: "logo" %></h1></td>
+
+      <td><%= link_to 'Log in', login_path unless session[:user_id] %></td>
+
+      <td><%= link_to 'Log out', logout_path, method: :delete if session[:user_id] %></td>
+    </tr>
+  </table>
+
+  <hr>
+
+</div>
