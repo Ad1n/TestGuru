@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
+    cookies[:back_page] = request.referrer
   end
 
   def create
@@ -8,7 +9,7 @@ class SessionsController < ApplicationController
 
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
-      cookies[:logged_in?] = redirect_to tests_path
+      redirect_to cookies[:back_page]
     else
       flash.now[:alert] = 'Who are u stranger ?'
       render 'new'
