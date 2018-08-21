@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180815081235) do
+ActiveRecord::Schema.define(version: 20180818122333) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,16 +28,6 @@ ActiveRecord::Schema.define(version: 20180815081235) do
     t.string "title", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "passed_test_logs", force: :cascade do |t|
-    t.boolean "passed", default: false, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.bigint "test_id"
-    t.index ["test_id"], name: "index_passed_test_logs_on_test_id"
-    t.index ["user_id"], name: "index_passed_test_logs_on_user_id"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -74,16 +64,13 @@ ActiveRecord::Schema.define(version: 20180815081235) do
 
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
-    t.string "login", null: false
-    t.string "password", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email"
+    t.string "password_digest"
   end
 
   add_foreign_key "answers", "questions"
-  add_foreign_key "passed_test_logs", "tests"
-  add_foreign_key "passed_test_logs", "users"
   add_foreign_key "questions", "tests"
   add_foreign_key "test_passages", "questions", column: "current_question_id"
   add_foreign_key "test_passages", "tests"

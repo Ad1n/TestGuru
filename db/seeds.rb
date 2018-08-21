@@ -44,10 +44,3 @@ answers = Answer.create!([
     { body: "@instance_variable", question: questions[3] },
     { body: "adress for variable", correct: false, question: questions[3] }
                          ])
-
-passed_tests = PassedTestLog.create!([
-    { passed: true, user: users[0], test: tests[2] },
-    { passed: true, user: users[0], test: tests[3] },
-    { user: users[0], test: tests[0] },
-    { passed: true, user: users[1], test: tests[3] }
-                                     ])
