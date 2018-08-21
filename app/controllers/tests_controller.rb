@@ -1,5 +1,5 @@
 class TestsController < ApplicationController
-  before_action :authenticate_user!, except: %i[index]
+  skip_before_action :authenticate_user!, only: %i[index]
   before_action :select_test, only: %i[show edit update destroy start]
   skip_before_action :set_user, except: %i[index start]
 

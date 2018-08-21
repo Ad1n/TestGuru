@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
 
+  skip_before_action :authenticate_user!
+
   def new
     cookies[:back_page] = request.referrer
   end
