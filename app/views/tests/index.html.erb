@@ -1,16 +1,12 @@
 <h1><b>TESTS</b></h1>
 
-<p>
-<%= link_to  "Create new test", new_test_path %>
-</p>
-
 <table>
   <tr>
     <th>Title</th>
     <th>Level</th>
-    <% if logged_in? %>
+    <% if user_signed_in? %>
     <th>Questions</th>
-    <th colspan="4">What u want to do?</th>
+    <th> Actions </th>
     <% end %>
   </tr>
     <%= render @tests %>
