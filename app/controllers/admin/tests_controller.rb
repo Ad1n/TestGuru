@@ -1,8 +1,6 @@
 class Admin::TestsController < Admin::BaseController
 
-  # skip_before_action :authenticate_user!, only: %i[index]
   before_action :select_test, only: %i[show edit update destroy start]
-  # skip_before_action :set_user, except: %i[index start]
 
   def index
     @tests = Test.all
@@ -20,8 +18,8 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def create
-    @test = Test.new(test_params)
-    @test.user_id = current_user.id
+    @test = current_user.created_test.new(test_params)
+    byebug
     if @test.save
       redirect_to admin_test_path(@test), notice: "Successfully created!"
     else
@@ -42,11 +40,6 @@ class Admin::TestsController < Admin::BaseController
     redirect_to admin_tests_path, notice: "Succesfully deleted"
   end
 
-  def start
-    current_user.tests.push(@test)
-    redirect_to current_user.test_passage(@test)
-  end
-
   private
 
   def select_test
@@ -54,7 +47,7 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def test_params
-    params.require(:test).permit(:title, :level, :category_id, :user_id)
+    params.require(:test).permit(:title, :level, :category_id)
   end
 
 end

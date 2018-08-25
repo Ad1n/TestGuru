@@ -5,14 +5,6 @@ Rails.application.routes.draw do
                                path_names: { sign_in: :login, sign_out: :logout },
                                controllers: { registrations: 'registrations/registrations' }
 
-  # resources :sessions, only: :create
-  # get 'login', to: 'sessions#new'
-
-  # delete 'logout', to: 'sessions#destroy'
-
-  # resources :users, only: :create
-  # get 'signup', to: 'users#new'
-
   resources :tests, only: :index do
     resources :questions, shallow: true do
       resources :answers, shallow: true, except: :index
@@ -22,6 +14,7 @@ Rails.application.routes.draw do
       post :start
     end
   end
+
 
   #GET test_passages/101/result
   resources :test_passages, only: %i[show update] do
