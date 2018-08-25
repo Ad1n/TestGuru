@@ -1,2 +1,6 @@
 ru:
-  hello: "Привет!"
+  devise:
+    sessions:
+      signed_in: "Успешно авторизованы."
+      signed_out: "Вы успешно покинули TestGuru."
+

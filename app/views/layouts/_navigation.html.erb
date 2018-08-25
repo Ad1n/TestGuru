@@ -1,18 +1,24 @@
-<div class="navbar-header">
+<div>
   <table>
     <tr>
-      <td><%= link_to 'Sign up', signup_path unless session[:user_id] %></td>
+      <td><%= link_to 'Sign up', new_user_registration_path unless user_signed_in? %></td>
       <td>
-        <% if session[:user_id] %>
-          <h3> Welcome <%= @current_user&.name %> ! </h3>
+        <% if user_signed_in? %>
+          <h3>
+            <% if current_user.name.present? || current_user.surname.present? %>
+              Welcome <b><%= "#{current_user.name} #{current_user.surname}" %></b> !
+            <% else %>
+              Welcome <b><%= current_user.email %></b> !
+            <% end %>
+          </h3>
         <% end %>
       </td>
 
       <td><h1><%= link_to "TEST GURU", root_path, class: "navbar-brand", id: "logo" %></h1></td>
 
-      <td><%= link_to 'Log in', login_path unless session[:user_id] %></td>
+      <td><%= link_to 'Login', new_user_session_path unless user_signed_in? %></td>
 
-      <td><%= link_to 'Log out', logout_path, method: :delete if session[:user_id] %></td>
+      <td><%= link_to 'Logout', destroy_user_session_path, method: :delete if user_signed_in? %></td>
     </tr>
   </table>
 
