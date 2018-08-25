@@ -19,7 +19,6 @@ class Admin::TestsController < Admin::BaseController
 
   def create
     @test = current_user.created_test.new(test_params)
-    byebug
     if @test.save
       redirect_to admin_test_path(@test), notice: "Successfully created!"
     else
