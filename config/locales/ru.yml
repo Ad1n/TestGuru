@@ -1,6 +1,57 @@
 ru:
-  devise:
-    sessions:
-      signed_in: "Успешно авторизованы."
-      signed_out: "Вы успешно покинули TestGuru."
+  helpers:
+    submit:
+      test:
+        create: "Создать тест"
+        update: "Обновить тест"
+    label:
+      test:
+        title: "Наименование"
+        level: "Уровень теста"
+        category_id: "Категория"
+    select:
+    # Default value for :prompt => true in FormOptionsHelper
+      prompt: "Пожалуйста выберите"
+  tests_helper:
+    level:
+      easy: "Лёгкий"
+      hard: "Тяжелый"
+      elementary: "Элементарный"
+      advanced: "Продвинутый"
+      hero: "Героический"
 
+
+  confirm:
+    message: "Вы уверены ?"
+
+  tests:
+    index:
+      header: "Список тестов"
+      table:
+        title: "Название"
+        level: "Сложность"
+        question_count: "Кол-во вопросов"
+        actions: "Возможные действия"
+    test:
+      actions:
+        show: "Просмотреть"
+        edit: "Изменить"
+        delete: "Удалить"
+        start: "Начать"
+
+
+  test_passages:
+    result:
+      header: "Тест %{title} успешно завершен!"
+
+  shared:
+    errors:
+      header:
+        one: "%{count} ошибка обнаружено"
+        other: "%{count} ошибки обнаружено"
+        many: "%{count} ошибок обнаружено"
+        few: "%{count} ошибки обнаружено"
+
+  tests_mailer:
+    completed_test:
+      subject: "Вы успешно завершили тест на TestGuru!"

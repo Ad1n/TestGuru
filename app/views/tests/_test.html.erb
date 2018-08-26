@@ -2,7 +2,7 @@
   <td><%= test.title %></td>
   <td><%= test_level(test) %></td>
   <% if user_signed_in? %>
-    <td><%= test.questions.count %></td>
-    <td><%= button_to  'Start', start_test_path(test) %></td>
+    <td align="center"><%= test.questions.count %></td>
+    <td><%= button_to t('.actions.start'), start_test_path(test) %></td>
   <% end %>
 </tr>

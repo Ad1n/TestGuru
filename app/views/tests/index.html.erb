@@ -1,12 +1,12 @@
-<h1><b>TESTS</b></h1>
+<h1><b><%= t('.header') %></b></h1>
 
 <table>
   <tr>
-    <th>Title</th>
-    <th>Level</th>
+    <th><%= t('.table.title') %></th>
+    <th><%= t('.table.level') %></th>
     <% if user_signed_in? %>
-    <th>Questions</th>
-    <th> Actions </th>
+    <th><%= t('.table.question_count') %></th>
+    <th> <%= t('.table.actions') %> </th>
     <% end %>
   </tr>
     <%= render @tests %>

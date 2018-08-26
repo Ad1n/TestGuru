@@ -30,11 +30,14 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+#LOCALIZATION
+gem 'rails-i18n', '~> 5.0.0'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 gem 'devise', '~> 4.0'
-gem 'rails-i18n'
+# gem 'rails-i18n'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

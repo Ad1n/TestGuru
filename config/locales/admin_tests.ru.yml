@@ -1,0 +1,30 @@
+ru:
+  admin:
+    tests:
+      create:
+        success: "Тест был успешно создан!"
+      index:
+        header: "Список тестов"
+        create_link: "Создать новый тест"
+        table:
+          title: "Название"
+          level: "Сложность"
+          question_count: "Кол-во вопросов"
+          actions: "Возможные действия"
+      test:
+        actions:
+          show: "Просмотреть"
+          edit: "Изменить"
+          delete: "Удалить"
+      new:
+        header: "Создание нового теста"
+        backlink: "Назад"
+      edit:
+        header: "Редактирование теста: %{test}"
+        backlink: "Назад"
+      show:
+        backlink: "Назад"
+        editlink: "Редактировать"
+        new_question_link: "Создать новый вопрос"
+
+
