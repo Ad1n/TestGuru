@@ -1,0 +1,30 @@
+en:
+  admin:
+    tests:
+      create:
+        success: "Test was successfully created!"
+      index:
+        header: "Tests"
+        create_link: "Create new test"
+        table:
+          title: "Title"
+          level: "Level"
+          question_count: "Questions"
+          actions: "Actions"
+      test:
+        actions:
+          show: "Show"
+          edit: "Edit"
+          delete: "Delete"
+      new:
+        header: "Create new TestGuru's test"
+        backlink: "Back"
+      edit:
+        header: "Edit test: %{test}"
+        backlink: "Back"
+      show:
+        backlink: "Back"
+        editlink: "Edit"
+        new_question_link: "Create new question"
+
+

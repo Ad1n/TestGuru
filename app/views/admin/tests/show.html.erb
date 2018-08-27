@@ -1,7 +1,9 @@
 <h1><b><%= @test.title %></b></h1>
 
+<p><%= render 'shared/errors', ressource: @test %></p>
+
 <p>
-<%= link_to 'Add new question', new_admin_test_question_path(@test.id) %>
+<%= link_to t('.new_question_link'), new_admin_test_question_path(@test.id) %>
 </p>
 
 <table>
@@ -12,6 +14,6 @@
   <%= render @test.questions %>
 </table>
 
-<%= link_to "Back", admin_tests_path %> |
-<%= link_to "Edit", edit_admin_test_path(@test) %>
+<%= link_to t('.backlink'), admin_tests_path %> |
+<%= link_to t('.editlink'), edit_admin_test_path(@test) %>
 

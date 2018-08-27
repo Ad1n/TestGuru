@@ -30,4 +30,45 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  helpers:
+    submit:
+      test:
+        create: "Create test"
+        update: "Update test"
+    label:
+      test:
+        title: "Title"
+        level: "Level"
+        category_id: "Category"
+    select:
+          # Default value for :prompt => true in FormOptionsHelper
+      prompt: "Select please"
+  tests_helper:
+    level:
+      easy: "easy"
+      hard: "hard"
+      elementary: "elementary"
+      advanced: "advanced"
+      hero: "hero"
+
+
+  confirm:
+    message: "Are u sure ?"
+
+  tests:
+    index:
+      header: "TESTS"
+
+  test_passages:
+    result:
+      header: "Test %{title} was successfully completed!"
+
+  shared:
+    errors:
+      header:
+        one: "%{count} error  detected"
+        other: "%{count} errors detected"
+
+  tests_mailer:
+    completed_test:
+      subject: "You just completed the TestGuru test!"
