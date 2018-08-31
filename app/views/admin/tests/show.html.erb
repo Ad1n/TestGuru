@@ -2,8 +2,8 @@
 
 <p><%= render 'shared/errors', ressource: @test %></p>
 
-<p>
-<%= link_to t('.new_question_link'), new_admin_test_question_path(@test.id) %>
+<p class="box" align="center">
+<%= link_to t('.new_question_link'), new_admin_test_question_path(@test.id), style: "text-decoration: none" %>
 </p>
 
 <div class="table-responsive">
@@ -23,5 +23,7 @@
   </table>
 </div>
 
-<%= link_to t('.backlink'), admin_tests_path %> |
-<%= link_to t('.editlink'), edit_admin_test_path(@test) %>
+<p class="box" align="center">
+  <%= link_to t('.backlink'), admin_tests_path, style: "text-decoration: none" %> |
+  <%= link_to t('.editlink'), edit_admin_test_path(@test), style: "text-decoration: none" %>
+</p>
