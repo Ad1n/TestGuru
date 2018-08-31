@@ -1,13 +1,21 @@
-<h1><b><%= t('.header') %></b></h1>
+<div class="d-inline-flex p-2 bd-highlight">
+    <h1><b><%= t('.header') %></b></h1>
+</div>
 
-<table>
-  <tr>
-    <th><%= t('.table.title') %></th>
-    <th><%= t('.table.level') %></th>
-    <% if user_signed_in? %>
-    <th><%= t('.table.question_count') %></th>
-    <th> <%= t('.table.actions') %> </th>
-    <% end %>
-  </tr>
-    <%= render @tests %>
-</table>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col"><%= t('.table.title') %></th>
+        <th scope="col"><%= t('.table.level') %></th>
+        <% if user_signed_in? %>
+        <th scope="col"><%= t('.table.question_count') %></th>
+        <th scope="col"> <%= t('.table.actions') %> </th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @tests %>
+    </tbody>
+  </table>
+</div>

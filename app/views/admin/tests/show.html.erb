@@ -6,14 +6,22 @@
 <%= link_to t('.new_question_link'), new_admin_test_question_path(@test.id) %>
 </p>
 
-<table>
-  <tr>
-    <th>Question </th>
-    <th colspan="3">Actions</th>
-  </tr>
-  <%= render @test.questions %>
-</table>
+<div class="table-responsive">
+  <table class="table table-striped">
+
+    <thead class="thead-dark">
+      <tr>
+        <th>Question </th>
+        <th colspan="3">Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= render @test.questions %>
+    </tbody>
+
+  </table>
+</div>
 
 <%= link_to t('.backlink'), admin_tests_path %> |
 <%= link_to t('.editlink'), edit_admin_test_path(@test) %>
-
