@@ -1,6 +1,6 @@
 <nav class="navbar navbar-light bg-light">
 
-  <% if admin? %>
+  <% if current_user&.admin? %>
     <%= link_to (image_tag "adjustments.png", alt: "Alt text", width: 50, height: 50), admin_tests_path %>
     <h2 class="text-white"> Admin Panel </h2>
   <% end %>
