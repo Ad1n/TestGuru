@@ -1,7 +1,20 @@
-<div class="nav nav-admin">
-  <span class="nav-admin title">TestGuru Admin panel</span>
-  <div class="nav-admin user">
-    Welcome, <b class="nav-admin user-email" ><%= current_user.email %></b> Guru |
-    <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+<div class="navbar navbar-light bg-primary row ">
+
+  <% if current_user&.admin? %>
+    <%= link_to (image_tag "adjustments.png", alt: "Alt text", width: 50, height: 50), admin_tests_path %>
+  <% end %>
+
+  <span class="col-md-auto text-white" style="font-size: 32px;">
+    Admin Panel
+  </span>
+
+  <span class="nav-admin title col-md-auto">
+    <%= button_to "TestGuru", root_path, class: "btn btn-lg btn-primary", method: :get %>
+  </span>
+
+  <div class="nav-admin user col-md-auto  ">
+    Welcome, <b><%= current_user.email %></b> Guru |
+    <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn btn-sm btn-primary"  %>
   </div>
+
 </div>

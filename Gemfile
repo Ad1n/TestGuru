@@ -33,6 +33,10 @@ gem 'jbuilder', '~> 2.5'
 #LOCALIZATION
 gem 'rails-i18n', '~> 5.0.0'
 
+#UI
+gem 'jquery-rails'
+gem 'bootstrap', '~> 4.0.0.beta'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
