@@ -2,7 +2,7 @@
   <div class="col-xs-8 col-xs-offset-2">
     <div class="panel">
       <% flash.each do |key, message| %>
-        <div class="<%= build_alert_classes(key) %>">
+        <div class="alert alert-dismissable fade show <%= alert_class(key) %>">
           <strong><%= message %></strong>
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>

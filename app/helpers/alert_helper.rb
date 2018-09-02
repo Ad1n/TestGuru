@@ -1,15 +1,16 @@
 module AlertHelper
-  def build_alert_classes(alert_type)
-    classes = 'alert alert-dismissable fade show '
+
+  def alert_class(alert_type)
     case alert_type.to_sym
       when :alert, :danger, :error, :validation_errors
-        classes += 'alert-danger'
+        'alert-danger'
       when :warning, :todo
-        classes += 'alert-warning'
+        'alert-warning'
       when :notice, :success
-        classes += 'alert-success'
+        'alert-success'
       else
-        classes += 'alert-info'
+        'alert-info'
     end
   end
+
 end
