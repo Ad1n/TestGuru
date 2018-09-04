@@ -62,6 +62,9 @@ en:
   test_passages:
     result:
       header: "Test %{title} was successfully completed!"
+    gist:
+      success: "Gist successfully saved "
+      failure: "Unfortunately Gist didn't save "
 
   shared:
     errors:
@@ -72,3 +75,7 @@ en:
   tests_mailer:
     completed_test:
       subject: "You just completed the TestGuru test!"
+
+  services:
+      git_question_service:
+        description: "Question: %{title} from TestGuru"

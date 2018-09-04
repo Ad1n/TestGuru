@@ -2,7 +2,8 @@
 
   <% if current_user&.admin? %>
     <%= link_to (image_tag "adjustments.png", alt: "Alt text", width: 50, height: 50), admin_tests_path %>
-  <% end %>
+    <%= link_to 'All Gists', admin_gists_path, class: "btn btn-sm btn-primary"  %>
+<% end %>
 
   <span class="col-md-auto text-white" style="font-size: 32px;">
     Admin Panel
