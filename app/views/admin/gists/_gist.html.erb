@@ -1,6 +1,7 @@
 <tr>
-  <td><%= truncate(gist.question, length: 25){ link_to "show", admin_question_path(gist.question_id) } %></td>
+  <td><%= link_to truncate(Question.find(gist.question_id).body, length: 25), \
+                  admin_question_path(gist.question_id) %></td>
   <td><%= link_to "to Gist", gist.gist_url, class: "btn btn-sm btn-primary" %></td>
-  <td><%= gist.email %></td>
+  <td><%= gist.user.email %></td>
   <td><%= gist.user.name %></td>
 </tr>

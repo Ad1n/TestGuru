@@ -1,11 +1,6 @@
-require 'octokit'
-require 'dotenv'
-
 class GistQuestionService
 
-  Dotenv.load('services.env')
-
-  def initialize(question, client: nil)
+  def initialize(question, client: default_client)
     @question = question
     @test = @question.test
     # @client = client || GitHubClient.new
@@ -32,9 +27,11 @@ class GistQuestionService
   end
 
   def gist_content
-    content = [@question.body]
-    content += @question.answers.pluck(:body)
-    content.join("\n")
+    [@question.body, *@question.answers.pluck(:body)].join("\n")
+  end
+
+  def default_client
+    Octokit::Client.new(access_token: ENV['ACCESS_TOKEN'])
   end
 
 end

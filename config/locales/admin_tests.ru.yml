@@ -28,11 +28,11 @@ ru:
         new_question_link: "Создать новый вопрос"
 
     gists:
-          index:
-            header: "Список всех Gist пользователей"
-            table:
-              question: "Вопрос"
-              gist_url: "ссылка Gist"
-              email: "Почта"
-              author: "Автор"
+      index:
+        header: "Список всех Gist пользователей"
+        table:
+          question: "Вопрос"
+          gist_url: "ссылка Gist"
+          email: "Почта"
+          author: "Автор"
 
