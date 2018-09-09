@@ -63,7 +63,7 @@ en:
     result:
       header: "Test %{title} was successfully completed!"
     gist:
-      success: "Gist successfully saved "
+      success: "Gist successfully saved %{link}"
       failure: "Unfortunately Gist didn't save "
 
   shared:
