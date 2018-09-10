@@ -27,4 +27,11 @@ en:
         editlink: "Edit"
         new_question_link: "Create new question"
 
-
+    gists:
+      index:
+        header: "User's Gists"
+        table:
+          question: "Question"
+          gist_url: "Gist link"
+          email: "Email"
+          author: "Created by"

@@ -5,7 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
+#ENV
+gem 'dotenv-rails', groups: [:development, :test]
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
 # Use sqlite3 as the database for Active Record
@@ -41,7 +42,13 @@ gem 'bootstrap', '~> 4.0.0.beta'
 # gem 'capistrano-rails', group: :development
 
 gem 'devise', '~> 4.0'
-# gem 'rails-i18n'
+
+#NETWORKING
+gem 'faraday'
+
+#API
+gem 'octokit', '~> 4.0'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

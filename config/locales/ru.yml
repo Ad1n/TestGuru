@@ -43,11 +43,14 @@ ru:
   test_passages:
     result:
       header: "Тест %{title} успешно завершен!"
+    gist:
+      success: "Gist успешно сохранён %{link} "
+      failure: "Во время сохранения Gist произошла ошибка "
 
   shared:
     errors:
       header:
-        one: "%{count} ошибка обнаружено"
+        one: "%{count} ошибка обнаружена"
         other: "%{count} ошибки обнаружено"
         many: "%{count} ошибок обнаружено"
         few: "%{count} ошибки обнаружено"
@@ -55,3 +58,7 @@ ru:
   tests_mailer:
     completed_test:
       subject: "Вы успешно завершили тест на TestGuru!"
+
+  services:
+    git_question_service:
+      description: "Вопрос: %{title} на платформе TestGuru"

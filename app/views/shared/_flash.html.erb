@@ -3,7 +3,7 @@
     <div class="panel">
       <% flash.each do |key, message| %>
         <div class="alert alert-dismissable fade show <%= alert_class(key) %>">
-          <strong><%= message %></strong>
+          <strong><%= raw message %></strong>
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
