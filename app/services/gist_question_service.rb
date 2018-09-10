@@ -23,7 +23,6 @@ class GistQuestionService
 
   def call
     @result = ResultOfConnection.new(@client.create_gist(gist_params))
-    result.success? ? result.gist_url : false
   end
 
   private
