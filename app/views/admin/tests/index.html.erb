@@ -4,14 +4,18 @@
   </p>
 </div>
 
-<p class=" box" align="center">
+<p class="box" align="center">
   <%= link_to  t('.create_link'), new_admin_test_path, style: "text-decoration: none" %>
 </p>
 <div class="table-responsive">
   <table class="table table-striped">
     <thead class="thead-dark">
       <tr>
-        <th><%= t('.table.title') %></th>
+        <th class="sort-by-title pointer">
+          <%= t('.table.title') %>
+          <%= octicon 'arrow-up', class: 'text-success hide' %>
+          <%= octicon 'arrow-down', class: 'text-success hide' %>
+        </th>
         <th><%= t('.table.level') %></th>
         <% if user_signed_in? %>
         <th><%= t('.table.question_count') %></th>
