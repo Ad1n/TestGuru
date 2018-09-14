@@ -4,6 +4,8 @@
   </p>
 </div>
 
+<%= render 'shared/errors' , ressource: @test %>
+
 <p class="box" align="center">
   <%= link_to  t('.create_link'), new_admin_test_path, style: "text-decoration: none" %>
 </p>

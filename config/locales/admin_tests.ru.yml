@@ -26,6 +26,8 @@ ru:
         backlink: "Назад"
         editlink: "Редактировать"
         new_question_link: "Создать новый вопрос"
+      form_inline:
+        submit: "Изменить"
 
     gists:
       index:

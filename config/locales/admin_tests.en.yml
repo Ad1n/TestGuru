@@ -26,6 +26,8 @@ en:
         backlink: "Back"
         editlink: "Edit"
         new_question_link: "Create new question"
+      form_inline:
+              submit: "Change"
 
     gists:
       index:
