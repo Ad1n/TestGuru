@@ -11,6 +11,10 @@ class TestPassage < ApplicationRecord
     save!
   end
 
+  def progress_by_percents
+    (((test.questions.ids.find_index(current_question.id)) * 100) / test.questions.count).round(0)
+  end
+
   def completed?
     current_question.nil?
   end

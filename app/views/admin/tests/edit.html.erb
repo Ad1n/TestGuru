@@ -1,5 +1,7 @@
 <h1><%= t('.header', test: @test.title) %></h1>
 
+<p><%= render 'shared/errors', ressource: @test %></p>
+
 <%= render 'form' %>
 
 <%= link_to t('.backlink'), admin_tests_path %>

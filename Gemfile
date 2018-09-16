@@ -44,10 +44,10 @@ gem 'octicons_helper'
 
 gem 'devise', '~> 4.0'
 
-#NETWORKING
+# NETWORKING
 gem 'faraday'
 
-#API
+# API
 gem 'octokit', '~> 4.0'
 
 
