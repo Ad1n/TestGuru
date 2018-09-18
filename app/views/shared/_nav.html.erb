@@ -11,7 +11,8 @@
   <span class="navbar-text">
     <% if user_signed_in? %>
       Welcome, <b><%= current_user.email %></b> Guru |
-      <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+      <%= link_to 'Log out', destroy_user_session_path, method: :delete %> |
+      <%= link_to 'Feedback', new_message_path, class: "btn btn-sm btn-primary" %>
     <% else %>
       <%= link_to 'Log in', new_user_session_path %>
       <%= link_to 'Sign up', new_user_registration_path %>

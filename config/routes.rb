@@ -5,6 +5,8 @@ Rails.application.routes.draw do
                                path_names: { sign_in: :login, sign_out: :logout },
                                controllers: { registrations: 'registrations/registrations' }
 
+  resources :messages, only: %i[new create]
+
   resources :tests, only: :index do
     resources :questions, shallow: true do
       resources :answers, shallow: true, except: :index
