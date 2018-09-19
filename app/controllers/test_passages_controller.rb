@@ -15,7 +15,7 @@ class TestPassagesController < ApplicationController
 
     if result.success?
       link_to_gist = view_context.link_to "Gist", result.gist_url
-      flash[:notice] =  t('.success', link: link_to_gist)
+      flash[:notice] = t('.success', link: link_to_gist)
 
       @gist = current_user.gists.create!(gist_url: result.gist_url, question: @test_passage.current_question)
     else
