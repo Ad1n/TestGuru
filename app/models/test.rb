@@ -1,9 +1,12 @@
 class Test < ApplicationRecord
+
+  before_destroy :del_tp
+
   belongs_to :category
   has_many :questions, dependent: :destroy
 
   has_many :test_passages, dependent: :destroy
-  has_many :users, through: :test_passages
+  has_many :users, through: :test_passages, dependent: :destroy
 
   # belongs_to :admin
 
@@ -19,4 +22,11 @@ class Test < ApplicationRecord
   scope :easy, -> { where(level: 0..1) }
   scope :middle, -> { where(level: 2..4) }
   scope :hard, -> { where(level: 5..Float::INFINITY) }
+
+  private
+
+  def del_tp
+    test_passages.destroy_all
+  end
+
 end
