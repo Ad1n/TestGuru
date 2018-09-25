@@ -1,0 +1,17 @@
+<tr>
+  <td class="align-middle">
+    <%= content_tag :span, user_badge.user.email %>
+  </td>
+
+  <td class="align-middle"><%= raw user_badge.badge.picture %></td>
+
+  <td class="align-middle"><%= raw user_badge.badge.created_at.strftime('%c') %></td>
+
+  <td class="align-middle"><%= link_to "Delete",
+                                       admin_user_badge_path(user_badge),
+                                       method: :delete,
+                                       data: { confirm: "Are u sure?" },
+                                       class: "badge badge-light",
+                                       style: "text-decoration: none" %>
+  </td>
+</tr>

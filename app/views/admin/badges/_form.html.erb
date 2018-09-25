@@ -1,0 +1,24 @@
+<div class="">
+  <p class="text-muted" style="font-size: 32px">
+    <b><%= badge_header(@badge) %></b>
+  </p>
+</div>
+
+<%= form_with model: [:admin, @badge], local: true do |form| %>
+
+  <%= render 'shared/errors', ressource: @badge %>
+
+  <p>
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :badge_title, class: "form-control"  %>
+  </p>
+
+  <div class="form-group">
+    <%= form.label :picture %>
+    <%= form.text_area :picture, id: :badge_picture, rows: 3, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

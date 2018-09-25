@@ -1,8 +1,6 @@
 class TestsController < ApplicationController
 
-  # skip_before_action :authenticate_user!, only: %i[index]
   before_action :select_test, only: %i[start]
-  # skip_before_action :set_user, except: %i[index start]
 
   def index
     @tests = Test.all

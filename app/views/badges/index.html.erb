@@ -1,0 +1,25 @@
+<div class="">
+  <p class="text-muted" style="font-size: 32px">
+    <b>All possible badges</b>
+  </p>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+      <th class="sort-by-title pointer">
+        Title
+        <%= octicon 'arrow-up', class: 'text-success hide' %>
+        <%= octicon 'arrow-down', class: 'text-success hide' %>
+      </th>
+      <th>Preview</th>
+    </tr>
+    </thead>
+    <tbody>
+    <%= render @badges %>
+    </tbody>
+  </table>
+</div>
+
+<%= link_to "BACK", :back, style: "text-decoration: none" %>

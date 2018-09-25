@@ -8,8 +8,6 @@ class Test < ApplicationRecord
   has_many :test_passages, dependent: :destroy
   has_many :users, through: :test_passages, dependent: :destroy
 
-  # belongs_to :admin
-
   belongs_to :author, class_name: 'Admin', foreign_key: 'user_id'
 
   validates :title, presence: true,

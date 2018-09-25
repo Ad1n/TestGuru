@@ -7,6 +7,7 @@ Rails.application.routes.draw do
                                               confirmations: 'registrations/confirmations'}
 
   resources :messages, only: %i[new create]
+  resources :badges, only: :index
 
   resources :tests, only: :index do
     resources :questions, shallow: true do
@@ -28,6 +29,8 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :user_badges, only: %i[index destroy]
+    resources :badges, except: :show
     resources :gists
     resources :tests do
       patch :update_inline, on: :member

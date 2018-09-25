@@ -1,0 +1,30 @@
+<div class="">
+  <p class="text-muted" style="font-size: 32px">
+    <b>Badges management</b>
+  </p>
+</div>
+
+<%= render 'shared/errors' , ressource: @badge %>
+
+<p class="box" align="center">
+  <%= link_to  "Create new badge", new_admin_badge_path, style: "text-decoration: none" %>
+</p>
+
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+      <th class="sort-by-title pointer">
+        Title
+        <%= octicon 'arrow-up', class: 'text-success hide' %>
+        <%= octicon 'arrow-down', class: 'text-success hide' %>
+      </th>
+      <th>Preview</th>
+      <th colspan="2">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <%= render @badges %>
+    </tbody>
+  </table>
+</div>
