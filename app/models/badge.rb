@@ -1,14 +1,12 @@
 class Badge < ApplicationRecord
 
-  before_destroy :del_user_badges
-
-  has_many :user_badges
+  has_many :user_badges, dependent: :destroy
   has_many :users, through: :user_badges
 
-  private
+  belongs_to :badge_rule
 
-  def del_user_badges
-    user_badges.destroy_all
-  end
+  scope :backend_badge, -> { where(badge_rule_id: BadgeRule.backend) }
+  scope :first_attempt_badge, -> { where(badge_rule_id: BadgeRule.first_attempt) }
+  scope :by_such_level_badge, ->(level) { where(badge_rule_id: BadgeRule.by_such_level(level)) }
 
 end

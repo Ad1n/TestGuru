@@ -5,10 +5,8 @@
   </p>
 </div>
 
-<% @current_user_badges = UserBadge.current_user_badges(current_user) %>
-
 <div class="col-md-auto">
-  <% @current_user_badges.each do |b| %>
-    <%= raw b.badge.picture %>
+  <% Array(current_user&.badges).each do |b| %>
+    <%= raw b.picture %>
   <% end %>
 </div>

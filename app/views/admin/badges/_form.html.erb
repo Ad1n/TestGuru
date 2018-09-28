@@ -19,6 +19,11 @@
   </div>
 
   <div>
+    <%= form.label :badge_rule_id %> :
+    <%= form.collection_select :badge_rule_id, BadgeRule.all, :id, :title, prompt: true %>
+  </div>
+
+  <div class="box" style="width: auto">
     <%= form.submit %>
   </div>
 <% end %>

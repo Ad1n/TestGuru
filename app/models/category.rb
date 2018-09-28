@@ -4,4 +4,6 @@ class Category < ApplicationRecord
   has_many :tests
 
   validates :title, presence: true
+
+  scope :backend, ->{ where(title: "Backend") }
 end

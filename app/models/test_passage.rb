@@ -27,11 +27,13 @@ class TestPassage < ApplicationRecord
     passed_by_percents.to_i >= 85
   end
 
-  def check_for_badges(user_id)
-    user.badges.push(set_badges.find_by(title: "#{test.level}")) if rule_all_such_level?(user_id)
-    user.badges.push(set_badges.find_by(title: "С первой попытки !")) if rule_first_attempt?(user_id)
-    user.badges.push(set_badges.find_by(title: "Backend на 100%")) if rule_all_backend?(user_id)
-  end
+  scope :user_attempts_in_test, ->(user_id, test_id) { where(user_id: user_id, test_id: test_id).count }
+  scope :all_tp_by_current_level, ->(test_id, user_id) { where(test_id: test_id,
+                                                               current_question_id: nil,
+                                                               user_id: user_id) }
+  scope :backend_passed_tests, ->(user_id, tests_id) { where(test_id: tests_id,
+                                                            current_question_id: nil,
+                                                            user_id: user_id) }
 
   private
 
@@ -62,33 +64,4 @@ class TestPassage < ApplicationRecord
     self.current_question = next_question
   end
 
-  # Rules for user badges ==============================================================================================
-
-  def rule_first_attempt?(user_id)
-    TestPassage.where(user_id: user_id, test_id: test.id).count == 1
-  end
-
-  def rule_all_such_level?(user_id)
-    # Select all tests with level like in current test
-    tests = Test.where(level: test.level).ids.map(&:to_s)
-    # Select all user's test passages
-    tp_such_level = TestPassage.where(test_id: tests,
-                                          current_question_id: nil,
-                                          user_id: user_id).pluck(:test_id).map(&:to_s)
-    (tests & tp_such_level == tests) & tests.any?
-  end
-
-  def rule_all_backend?(user_id)
-    # Select category id with title backend
-    category_backend_id = Category.where(title: "Backend")
-    # Select all tests ids with category backend
-    tests_backend = Test.where(category_id: category_backend_id).ids.map(&:to_s)
-    #Select all backend test passages for current user
-    user_tp_backend = TestPassage.where(test_id: tests_backend,
-                                        current_question_id: nil,
-                                        user_id: user_id).pluck(:test_id).map(&:to_s)
-    (tests_backend & user_tp_backend == tests_backend) & tests_backend.any?
-  end
-
-  # ====================================================================================================================
 end

@@ -10,9 +10,7 @@ class Admin::BadgesController < Admin::BaseController
     @badge = Badge.new
   end
 
-  def edit
-
-  end
+  def edit; end
 
   def create
     @badge = Badge.new(badge_params)
@@ -40,7 +38,7 @@ class Admin::BadgesController < Admin::BaseController
   private
 
   def badge_params
-    params.require(:badge).permit(:title, :picture)
+    params.require(:badge).permit(:title, :picture, :badge_rule_id)
   end
 
   def set_badge

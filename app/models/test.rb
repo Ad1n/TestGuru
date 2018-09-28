@@ -20,6 +20,8 @@ class Test < ApplicationRecord
   scope :easy, -> { where(level: 0..1) }
   scope :middle, -> { where(level: 2..4) }
   scope :hard, -> { where(level: 5..Float::INFINITY) }
+  scope :by_current_level, ->(level) { where(level: level) }
+  scope :backend_tests, -> { where(category_id: Category.backend) }
 
   private
 
