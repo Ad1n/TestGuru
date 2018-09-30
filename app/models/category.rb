@@ -5,5 +5,4 @@ class Category < ApplicationRecord
 
   validates :title, presence: true
 
-  scope :backend, ->{ where(title: "Backend") }
 end

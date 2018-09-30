@@ -21,7 +21,7 @@ class Test < ApplicationRecord
   scope :middle, -> { where(level: 2..4) }
   scope :hard, -> { where(level: 5..Float::INFINITY) }
   scope :by_current_level, ->(level) { where(level: level) }
-  scope :backend_tests, -> { where(category_id: Category.backend) }
+  scope :by_category, ->(category) { joins(:category).where(categories: { title: category }) }
 
   private
 

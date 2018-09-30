@@ -18,10 +18,15 @@
     <%= form.text_area :picture, id: :badge_picture, rows: 3, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :badge_rule_id %> :
-    <%= form.collection_select :badge_rule_id, BadgeRule.all, :id, :title, prompt: true %>
-  </div>
+  <p>
+    <%= form.label :rule %>
+    <%= form.text_field :rule, id: :badge_rule, class: "form-control"  %>
+  </p>
+
+  <p>
+    <%= form.label :rule_param %>
+    <%= form.text_field :rule_param, id: :badge_rule_param, class: "form-control"  %>
+  </p>
 
   <div class="box" style="width: auto">
     <%= form.submit %>
