@@ -24,9 +24,9 @@ class TestPassagesController < ApplicationController
   def update
     @test_passage.accept!(params[:answer_ids])
     if @test_passage.completed?
-      badges_service = CheckForBadgesService.new(current_user, @test_passage)
-      badges_service.call
-      badges_service.get_badges
+      service = CheckForBadgesService.new(current_user, @test_passage)
+      badges = service.call
+      current_user.badges << badges
       TestsMailer.completed_test(@test_passage).deliver_now
       redirect_to result_test_passage_path(@test_passage)
     else
