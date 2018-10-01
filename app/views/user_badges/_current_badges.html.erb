@@ -1,0 +1,12 @@
+<div>
+  <p class="text-muted" style="font-size: 24px;">
+    <b>Current badges</b>
+
+  </p>
+</div>
+
+<div class="col-md-auto">
+  <% Array(current_user&.badges).each do |b| %>
+    <%= raw b.picture %>
+  <% end %>
+</div>

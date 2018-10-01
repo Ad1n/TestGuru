@@ -3,19 +3,41 @@
   <% if current_user&.admin? %>
     <%= link_to (image_tag "adjustments.png", alt: "Alt text", width: 50, height: 50), admin_tests_path %>
     <%= link_to 'All Gists', admin_gists_path, class: "btn btn-sm btn-primary"  %>
-    <h2 class="text-white"> Admin Panel </h2>
+    <h2 class="text-white text-muted"> Admin Panel </h2>
   <% end %>
 
   <%= link_to 'TestGuru', root_path, class: 'navbar-brand' %>
 
-  <span class="navbar-text">
+
+
+  <div class="nav-admin user col-md-auto">
+
     <% if user_signed_in? %>
       Welcome, <b><%= current_user.email %></b> Guru |
-      <%= link_to 'Log out', destroy_user_session_path, method: :delete %> |
-      <%= link_to 'Feedback', new_message_path, class: "btn btn-sm btn-primary" %>
+
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn btn-secondary btn-sm"  %>
+
+        <button class="btn btn-secondary btn-sm" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          My badges
+        </button>
+
+        <%= link_to 'All badges', badges_path, class: "btn btn-secondary btn-sm" %>
+        <%= link_to 'Feedback', new_message_path, class: "btn btn-secondary btn-sm" %>
+
+      </div>
     <% else %>
-      <%= link_to 'Log in', new_user_session_path %>
-      <%= link_to 'Sign up', new_user_registration_path %>
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <%= link_to 'Log in', new_user_session_path, class: "btn btn-secondary btn-sm" %>
+        <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-secondary btn-sm" %>
+      </div>
     <% end %>
-  </span>
+  </div>
+
+  <div class="collapse" id="collapseExample" style="width: 100%; padding-top: auto">
+    <div class="card card-body">
+      <%= render 'user_badges/current_badges' %>
+    </div>
+  </div>
+
 </nav>

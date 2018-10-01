@@ -1,0 +1,30 @@
+<div class="">
+  <p class="text-muted" style="font-size: 32px">
+    <b>All users badges received</b>
+  </p>
+</div>
+
+<p class="box" align="center">
+  <%= link_to  "New badge", new_admin_badge_path, style: "text-decoration: none" %>
+</p>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+      <th class="sort-by-title pointer">
+        User
+        <%= octicon 'arrow-up', class: 'text-success hide' %>
+        <%= octicon 'arrow-down', class: 'text-success hide' %>
+      </th>
+      <th>Badge</th>
+      <th>Received at</th>
+      <% if user_signed_in? %>
+        <th>Action</th>
+      <% end %>
+    </tr>
+    </thead>
+    <tbody>
+      <%= render @user_badges %>
+    </tbody>
+  </table>
+</div>

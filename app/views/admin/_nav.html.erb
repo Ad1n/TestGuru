@@ -2,7 +2,19 @@
 
   <% if current_user&.admin? %>
     <%= link_to (image_tag "adjustments.png", alt: "Alt text", width: 50, height: 50), admin_tests_path %>
-    <%= link_to 'All Gists', admin_gists_path, class: "btn btn-sm btn-primary"  %>
+
+    <div class="btn-group">
+      <button type="button" class="btn btn-light btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Control panel
+      </button>
+      <div class="dropdown-menu">
+        <%= link_to 'Badge management', admin_badges_path, class: "dropdown-item" %>
+        <%= link_to 'All users badges', admin_user_badges_path, class: "dropdown-item" %>
+        <div class="dropdown-divider"></div>
+        <%= link_to 'All Gists', admin_gists_path, class: "dropdown-item"  %>
+      </div>
+    </div>
+
 <% end %>
 
   <span class="col-md-auto text-white" style="font-size: 32px;">
@@ -10,12 +22,29 @@
   </span>
 
   <span class="nav-admin title col-md-auto">
-    <%= button_to "TestGuru", root_path, class: "btn btn-lg btn-primary", method: :get %>
+    <%= button_to "TestGuru", root_path, class: "btn btn-lg btn-primary ",
+                                                method: :get,
+                                                style: "" %>
   </span>
 
   <div class="nav-admin user col-md-auto  ">
     Welcome, <b><%= current_user.email %></b> Guru |
-    <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn btn-sm btn-primary"  %>
+
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn btn-light btn-sm"  %>
+
+      <button class="btn btn-light btn-sm" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        My badges
+      </button>
+
+    </div>
+
+  </div>
+
+  <div class="collapse" id="collapseExample" style="width: 100%; padding-top: auto">
+    <div class="card card-body">
+      <%= render 'user_badges/current_badges' %>
+    </div>
   </div>
 
 </div>

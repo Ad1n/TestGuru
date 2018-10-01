@@ -3,6 +3,6 @@
   <td><%= test_level(test) %></td>
   <% if user_signed_in? %>
     <td align="center"><%= test.questions.count %></td>
-    <td><%= button_to t('.actions.start'), start_test_path(test) %></td>
+    <td><%= button_to t('.actions.start'), start_test_path(test), class: "btn btn-sm btn-dark" %></td>
   <% end %>
 </tr>

@@ -1,0 +1,26 @@
+<tr>
+  <td class="align-middle">
+    <%= content_tag :span, badge.title %>
+  </td>
+
+  <td class="align-middle"><%= raw badge.picture %></td>
+
+  <td class="align-middle"><%= badge.rule %></td>
+
+  <td class="align-middle"><%= badge.rule_param %></td>
+
+  <td class="align-middle">
+    <%= link_to "Edit",
+                edit_admin_badge_path(badge),
+                class: "badge",
+                style: "text-decoration: none" %>
+  </td>
+
+  <td class="align-middle"><%= link_to "Delete",
+                                       admin_badge_path(badge),
+                                       method: :delete,
+                                       data: { confirm: "Are u sure?" },
+                                       class: "badge",
+                                       style: "text-decoration: none" %>
+  </td>
+</tr>
