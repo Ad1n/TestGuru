@@ -9,4 +9,8 @@ module TestsHelper
     TEST_LEVELS[test.level] || I18n.t('tests_helper.level.hero')
   end
 
+  def has_timer?(test)
+    test.test_time.hour != 0 || test.test_time.min != 0 || test.test_time.sec != 0
+  end
+
 end

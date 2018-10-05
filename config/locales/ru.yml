@@ -29,6 +29,7 @@ ru:
       header: "Список тестов"
       table:
         title: "Название"
+        timer: "Таймер"
         level: "Сложность"
         question_count: "Кол-во вопросов"
         actions: "Возможные действия"

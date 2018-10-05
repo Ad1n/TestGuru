@@ -58,6 +58,9 @@ en:
   tests:
     index:
       header: "TESTS"
+      table:
+        timer: "Timer"
+
 
   test_passages:
     result:

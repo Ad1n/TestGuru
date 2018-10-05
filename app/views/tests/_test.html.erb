@@ -1,6 +1,7 @@
 <tr>
   <td><%= test.title %></td>
   <td><%= test_level(test) %></td>
+  <td><%= has_timer?(test) ? test.test_time&.strftime("%H:%M:%S") : "Free time" %></td>
   <% if user_signed_in? %>
     <td align="center"><%= test.questions.count %></td>
     <td><%= button_to t('.actions.start'), start_test_path(test), class: "btn btn-sm btn-dark" %></td>

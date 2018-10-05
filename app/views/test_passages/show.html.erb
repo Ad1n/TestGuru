@@ -21,7 +21,11 @@
   </b>
 </p>
 
-<%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
+<%= form_with url: test_passage_path(@test_passage),
+              id: "Form-tp",
+              local: true,
+              data: { test_passage_id: @test_passage.id },
+              method: :put do |form| %>
   <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body,
       include_hidden: false do |b| %>
     <p>
@@ -34,6 +38,14 @@
   <p><%= form.submit 'Next' %></p>
 
 <% end %>
+<p>
+  <%= link_to 'To test list', root_path, id: 'Link-to-test' %>
+  <div id="Timer-presence" class="hide"><%= @test_passage.test.test_time.hour != 0 ||
+                                            @test_passage.test.test_time.min != 0 ||
+                                            @test_passage.test.test_time.sec != 0 %></div>
+  <div id="Timer-hours" class="hide"> <%= @test_passage.test.test_time&.hour %> </div>
+  <div id="Timer-minutes" class="hide"> <%= @test_passage.test.test_time&.min %> </div>
+  <div id="Timer-seconds" class="hide"> <%= @test_passage.test.test_time&.sec %> </div>
 
-<p><%= link_to 'To test list', root_path %></p>
-
+  <h1 class="timer" ID="Timer"></h1>
+</p>

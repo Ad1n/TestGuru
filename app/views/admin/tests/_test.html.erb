@@ -8,6 +8,7 @@
     <%= render 'form_inline', test: test == @test ? @test : test %>
   </td>
   <td class="align-middle"><%= test_level(test) %></td>
+  <td class="align-middle"><%= has_timer?(test) ? test.test_time&.strftime("%H:%M:%S") : "Free time" %></td>
   <% if user_signed_in?  %>
     <td class="align-middle"><%= test.questions.count %></td>
     <td class="align-middle"><%= link_to t('.actions.show'), admin_test_path(test), class: "badge badge-light" %></td>
