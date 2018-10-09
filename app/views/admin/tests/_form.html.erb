@@ -17,6 +17,10 @@
     <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %>
   </p>
 
+  <p>
+    <%= form.label :test_time, value: "Test time: " %>
+    <%= form.time_select :test_time, id: :test_test_time, default: { hour: '00', minute: '00' } %>
+  </p>
 
   <p>
     <%= form.submit %>

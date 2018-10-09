@@ -22,7 +22,7 @@ class CheckForBadgesService
 
   private
 
-  def rule_passed_by_first_attempt?(param)
+  def rule_passed_by_first_attempt?(*args)
     TestPassage.where(user_id: badge_user.id, test_id: test_passage.test.id).count == 1
   end
 
